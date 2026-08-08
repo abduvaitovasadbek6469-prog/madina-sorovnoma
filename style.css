@@ -476,9 +476,9 @@ input { width: 100%; min-height: 50px; padding: 12px 14px; border: 1px solid var
 .secret-reveal-mode .eyebrow { color: #f3bdc5; }
 .secret-reveal-mode .button { background: #c76e7f; }
 .cover-frame {
-  width: min(100%, 295px);
-  max-height: 43dvh;
-  margin: 0 auto 18px;
+  width: min(100%, 230px);
+  max-height: 30dvh;
+  margin: 0 auto 12px;
   overflow: hidden;
   border: 2px solid rgba(211, 143, 155, .72);
   border-radius: 17px;
@@ -489,14 +489,15 @@ input { width: 100%; min-height: 50px; padding: 12px 14px; border: 1px solid var
   display: block;
   width: 100%;
   height: 100%;
-  max-height: 43dvh;
+  max-height: 30dvh;
   object-fit: cover;
   object-position: center top;
-  animation: cover-float 4.5s ease-in-out 1s infinite;
 }
 .comic-cover-mode { overflow-y: auto; justify-content: start; background: linear-gradient(145deg, #321d3a, #70425f); }
-.comic-cover-mode h1 { font-size: clamp(1.35rem, 5.4vw, 1.75rem); }
-.comic-cover-mode .final-copy { font-size: .91rem; }
+.comic-cover-mode h1 { margin-top: 6px; font-size: clamp(1.15rem, 4.6vw, 1.55rem); }
+.comic-cover-mode .eyebrow { margin-bottom: 6px; }
+.comic-cover-mode .final-copy { margin-top: 6px; font-size: .85rem; }
+.comic-cover-mode .actions { margin-top: 14px; }
 .invitation-mode { background: linear-gradient(145deg, #321d3a, #70425f); }
 .invitation-mode h1 { color: #fff; }
 .invitation-mode .final-copy { max-width: 470px; margin-left: auto; margin-right: auto; }
