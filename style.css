@@ -481,27 +481,55 @@ input { width: 100%; min-height: 50px; padding: 12px 14px; border: 1px solid var
 .secret-reveal-mode .eyebrow { color: #f3bdc5; }
 .secret-reveal-mode .button { background: #c76e7f; }
 .cover-frame {
-  width: min(88%, 320px);
-  max-height: 44dvh;
-  margin: 0 auto 12px;
+  position: relative;
+  width: min(88%, 340px);
+  max-height: 56dvh;
+  margin: 4px auto 18px;
   overflow: hidden;
-  border: 2px solid rgba(211, 143, 155, .72);
-  border-radius: 17px;
-  box-shadow: 0 20px 42px rgba(32, 12, 25, .36), 0 0 0 1px rgba(255, 195, 210, .14);
+  border-radius: 22px;
+  box-shadow: 0 24px 60px rgba(20, 8, 16, .48), 0 0 0 1px rgba(255, 214, 224, .1), 0 0 46px rgba(232, 199, 138, .16);
   animation: cover-reveal .8s cubic-bezier(.16, .9, .27, 1) both;
 }
+.cover-frame::before,
+.cover-frame::after {
+  content: "✦";
+  position: absolute;
+  z-index: 4;
+  color: #f3d9a4;
+  text-shadow: 0 0 10px rgba(243, 217, 164, .8);
+  pointer-events: none;
+  animation: sparkle-twinkle 2.6s ease-in-out infinite;
+}
+.cover-frame::before { top: 10%; right: 8%; font-size: 1.05rem; animation-delay: .2s; }
+.cover-frame::after { bottom: 14%; left: 9%; font-size: .8rem; animation-delay: 1.3s; }
 .cover-frame img {
   display: block;
   width: 100%;
   height: auto;
-  max-height: 44dvh;
+  max-height: 56dvh;
   object-fit: contain;
 }
+.gift-ribbon {
+  position: absolute;
+  top: 20px;
+  left: -38px;
+  z-index: 3;
+  width: 165px;
+  padding: 6px 0;
+  background: linear-gradient(135deg, #f3d9a4, #d9a45f);
+  color: #3a2313;
+  font-size: .7rem;
+  font-weight: 800;
+  letter-spacing: .07em;
+  text-transform: uppercase;
+  text-align: center;
+  transform: rotate(-45deg);
+  box-shadow: 0 5px 12px rgba(0,0,0,.32);
+}
 .comic-cover-mode { overflow-y: auto; justify-content: start; background: linear-gradient(145deg, #321d3a, #70425f); }
-.comic-cover-mode h1 { margin-top: 6px; font-size: clamp(1.15rem, 4.6vw, 1.55rem); }
-.comic-cover-mode .eyebrow { margin-bottom: 6px; }
-.comic-cover-mode .final-copy { margin-top: 6px; font-size: .85rem; }
-.comic-cover-mode .actions { margin-top: 14px; }
+.comic-cover-mode h1 { margin-top: 10px; font-size: clamp(1.2rem, 4.6vw, 1.55rem); }
+.comic-cover-mode .final-copy { margin-top: 8px; font-size: .85rem; }
+.comic-cover-mode .actions { margin-top: 16px; }
 .invitation-mode { background: linear-gradient(145deg, #321d3a, #70425f); }
 .invitation-mode h1 { color: #fff; }
 .invitation-mode .final-copy { max-width: 470px; margin-left: auto; margin-right: auto; }
@@ -529,6 +557,7 @@ input { width: 100%; min-height: 50px; padding: 12px 14px; border: 1px solid var
 .invitation-answer-form textarea::placeholder { color: rgba(255,255,255,.7); }
 .invitation-answer-form textarea:focus-visible { outline: 3px solid rgba(255,255,255,.5); outline-offset: 3px; }
 @keyframes cover-reveal { from { opacity: 0; transform: perspective(800px) rotateY(-13deg) scale(.88); } to { opacity: 1; transform: perspective(800px) rotateY(0) scale(1); } }
+@keyframes sparkle-twinkle { 0%, 100% { opacity: .15; transform: scale(.85); } 50% { opacity: 1; transform: scale(1.15); } }
 @keyframes cover-float { 0%, 100% { transform: scale(1); filter: brightness(1); } 50% { transform: scale(1.035) translateY(-5px); filter: brightness(1.08); } }
 @keyframes spin { to { transform: rotate(360deg); } }
 @keyframes card-in { from { opacity: 0; transform: translateY(12px); } }

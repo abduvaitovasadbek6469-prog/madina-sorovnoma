@@ -400,8 +400,10 @@ function renderComicCover() {
   clearSurveyTheme();
   appElement.classList.add("final-mode", "comic-cover-mode");
   appElement.innerHTML = `
-    <div class="cover-frame"><img src="comic-cover.png" alt="Madina uchun tayyorlangan maxsus komiks muqovasi"></div>
-    <p class="eyebrow center">Maxsus muqova</p>
+    <div class="cover-frame">
+      <span class="gift-ribbon">Sizga sovg'a</span>
+      <img src="comic-cover.png" alt="Madina uchun tayyorlangan maxsus komiks muqovasi">
+    </div>
     <h1 class="center">Bu — siz uchun tayyorlangan maxsus komiks.</h1>
     <p class="final-copy center">Undagi voqealar, qahramonlar va sahifalar alohida tayyorlangan.<br>Hozir siz uning faqat muqovasini ko‘ryapsiz.</p>
     <div class="actions"><button id="continue-invite" class="button">Davom etish <span aria-hidden="true">→</span></button></div>`;
