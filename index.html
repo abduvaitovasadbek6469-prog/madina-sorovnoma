@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f8f2f3">
+  <meta name="description" content="Madina uchun tayyorlangan kichik interaktiv so‘rovnoma">
+  <title>Salom, Madina</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app-shell">
+    <section id="app" class="card welcome-mode" aria-live="polite">
+      <video class="welcome-video" autoplay muted loop playsinline preload="metadata" aria-hidden="true">
+        <source src="welcome-background.mp4" type="video/mp4">
+      </video>
+      <div class="welcome-shade" aria-hidden="true"></div>
+      <div class="welcome-copy">
+        <h1>Salom, Madina</h1>
+        <p class="lead">Sizning ayrim qiziqishlaringizni yaqindan bilish maqsadida kichik va qiziqarli so‘rovnoma tayyorladim.<br>Agar qarshi bo‘lmasangiz, bir necha daqiqaga suhbatlashsak nima deysiz</p>
+        <div class="actions"><button id="start" class="button welcome-button">Yaxshi, boshladik <span aria-hidden="true">→</span></button></div>
+      </div>
+    </section>
+  </main>
+  <audio id="background-music" src="background-music.m4a" preload="auto" autoplay loop></audio>
+  <button id="music-toggle" class="music-toggle" type="button" aria-pressed="true" aria-label="Musiqani o'chirish" title="Musiqa"></button>
+  <script defer src="script.js"></script>
+</body>
+</html>
