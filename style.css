@@ -53,6 +53,8 @@ p { line-height: 1.65; }
   align-items: center;
   animation: card-in .45s ease both, welcome-breathe 6s ease-in-out .5s infinite;
 }
+.app-shell:has(.welcome-mode) { padding: 0; }
+.card.welcome-mode { width: 100vw; width: 100dvw; height: 100vh; height: 100dvh; min-height: 100dvh; border-radius: 0; border: none; box-shadow: none; }
 .welcome-mode::before,
 .welcome-mode::after {
   content: "";
