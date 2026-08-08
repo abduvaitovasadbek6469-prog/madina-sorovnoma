@@ -408,6 +408,10 @@ function renderComicCover() {
     <p class="final-copy center">Undagi voqealar, qahramonlar va sahifalar alohida tayyorlangan.<br>Hozir siz uning faqat muqovasini ko‘ryapsiz.</p>
     <div class="actions"><button id="continue-invite" class="button">Davom etish <span aria-hidden="true">→</span></button></div>`;
   document.querySelector("#continue-invite").addEventListener("click", renderInvitation);
+  if (!demoMode && responseRef) {
+    firebaseApi.setDoc(responseRef, { comicViewedAt: firebaseApi.serverTimestamp() }, { merge: true })
+      .catch(error => console.error("comicViewedAt saqlanmadi:", error));
+  }
 }
 
 function renderInvitation() {

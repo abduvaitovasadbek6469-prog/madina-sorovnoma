@@ -78,6 +78,7 @@ function renderResponse(data) {
       <div class="meta"><small>Boshlandi</small>${formatDate(data.startedAt)}</div>
       <div class="meta"><small>Oxirgi faollik</small>${formatDate(data.updatedAt)}</div>
       <div class="meta"><small>Tugadi</small>${formatDate(data.completedAt)}</div>
+      <div class="meta"><small>Komiksni ko‘rdi</small>${formatDate(data.comicViewedAt)}</div>
       <div class="meta"><small>Taklif kodi</small>${escapeHtml(data.inviteCode || "—")}</div>
     </div>
     <ol class="answer-list">${Object.entries(questionLabels).map(([id, label]) => `<li><strong>${escapeHtml(label)}:</strong> ${escapeHtml(answers[id]?.optionText || "Javob berilmagan")}</li>`).join("")}</ol>
