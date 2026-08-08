@@ -2,6 +2,32 @@ const appElement = document.querySelector("#app");
 const musicToggle = document.querySelector("#music-toggle");
 const backgroundMusic = document.querySelector("#background-music");
 
+// Har bir mavzu uchun fon video manzili — keyingi savol videosini oldindan yuklab qo'yish uchun ishlatiladi.
+const videoSourceByTheme = {
+  travel: "travel-background.mp4",
+  chocolate: "chocolate-background.mp4",
+  movies: "movies-background.mp4",
+  leisure: "free-time-background.mp4",
+  conversation: "conversation-background.mp4",
+  secret: "secret-background.mp4",
+  idealday: "ideal-day-background.mp4",
+  attention: "attention-background.mp4",
+  calm: "calm-background.mp4",
+  impression: "impression-background.mp4"
+};
+const prefetchedVideos = new Set();
+
+// Foydalanuvchi hozirgi savolga javob berayotganda, keyingi savol videosini fonda oldindan yuklab qo'yadi.
+function prefetchVideo(src) {
+  if (!src || prefetchedVideos.has(src)) return;
+  prefetchedVideos.add(src);
+  const link = document.createElement("link");
+  link.rel = "prefetch";
+  link.as = "video";
+  link.href = src;
+  document.head.appendChild(link);
+}
+
 // Savollarni shu massiv orqali osongina o‘zgartirish yoki ko‘paytirish mumkin.
 const questions = [
   { id: "q1", question: "Agar xohlagan davlatingizga sayohat qilish imkoniyati bo‘lganda, qaysi davlatga borgan bo‘lardingiz?", options: ["USA", "England", "Japan", "Switzerland"], allowCustom: true, theme: "travel" },
@@ -286,6 +312,8 @@ function renderQuestion() {
   });
   document.querySelector("#skip-question")?.addEventListener("click", () => saveAnswer(-1, "Javob berilmagan"));
   document.querySelector("#back")?.addEventListener("click", () => { currentQuestion -= 1; renderQuestion(); });
+  const nextItem = questions[currentQuestion + 1];
+  if (nextItem) prefetchVideo(videoSourceByTheme[nextItem.theme]);
 }
 
 // Tanlovni darhol yozadi; muvaffaqiyatdan keyingina keyingi savolga o‘tadi.
